@@ -1,0 +1,45 @@
+html {
+	font-family: sans-serif;
+}
+
+body {
+	margin:0;
+	overflow:hidden;
+}
+
+.page {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100vw;
+	height:100vh;
+}
+
+.page {
+	transform:translate(-100%);
+	transition:0.5s transform ease;
+}
+.page[data-page="entry"] {
+	transform:translate(-100%);
+	background:blue;
+	text-align: right;
+}
+.page[data-page="inner_1"] {
+	background: red;
+}
+.page[data-page="inner_2"] {
+	background:green;
+}
+.page.active {
+	transform:translate(0);
+}
+
+.button {
+	color:white;
+	background:black;
+	padding:1rem;
+	display:inline-block;
+	margin:1rem;
+	position:relative;
+	overflow:hidden;
+}
