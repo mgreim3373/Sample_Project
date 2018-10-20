@@ -13,25 +13,26 @@ body {
 	left:0;
 	width:100vw;
 	height:100vh;
-}
-
-.page {
-	transform:translate(-100%);
 	transition:0.5s transform ease;
 }
-.page[data-page="entry"] {
-	transform:translate(-100%);
-	background:blue;
-	text-align: right;
+
+.page[data-page="gov_left"] {
+	transform:translate(-50.5%);
+	background-image: url("../images/gov_bg.png");
+	background-position: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.page[data-page="inner_1"] {
-	background: red;
-}
-.page[data-page="inner_2"] {
-	background:green;
+.page[data-page="hospit_right"] {
+	transform:translate(50.5%);
+	background-image: url("../images/hc_bg.png");
+	background-position: -250px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .page.active {
 	transform:translate(0);
+	transition:0.5s transform ease;
 }
 
 .button {
@@ -42,4 +43,37 @@ body {
 	margin:1rem;
 	position:relative;
 	overflow:hidden;
+}
+
+.home {
+	transform:translate(0%);
+	position: relative;
+	z-index: 10;
+}
+
+.page.slide_right {
+transform:translate(100%);
+}
+
+.page.slide_left {
+transform:translate(-100%);
+}
+
+.text {
+	text-align: center;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+  line-height: 50%;
+	padding-top: 5%;
+	padding-bottom: 5%;
 }
