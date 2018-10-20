@@ -21,10 +21,18 @@ $("[data-js-page='home']").on("touchend", function(){
 	var gov_image = [$("[data-page='gov_left']"), "250px"]
 	$(".page").removeClass("active slide_right slide_left")
 	$(".flex-container > div").css({"display":"initial"})
+	$(".option_container").addClass('hide')
 	offsetImage(hospit_image[0], hospit_image[1])
 	offsetImage(gov_image[0], gov_image[1])
+	(".option_container").css(({"display":"initial"}))
 })
+
+$(".explore_button").on("touchend", function(){
+	$(".option_container").removeClass('hide')
 })
+
+})
+
 
 const clearActiveClass = () => {
 	$(".page").removeClass("active")

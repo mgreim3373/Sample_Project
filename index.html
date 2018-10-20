@@ -9,24 +9,32 @@
   </head>
   <body>
           <div class="home" data-page="entry">
-            <div class="button" data-js-page="gov_left">gov</div>
-            <div class="button" data-js-page="hospit_right">hos</div>
-            <div class="button" data-js-page="home">home</div>
             <div class="flex-container">
-              <div class="text">
-                <h2>sample</h2>
+              <div class="to_gov" data-js-page="gov_left">
+                <h1>Government</h1>
               </div>
-              <div class="text">
-                <h2>sample</h2>
+              <div class="text-title" data-js-page="home">
+                <h2>Kaon Interactive</h2>
               </div>
-              <div class="text">
-                <h2>sample</h2>
+              <div class="to_hospit" data-js-page="hospit_right">
+                <h1>Healthcare</h1>
               </div>
             </div>
           </div>
           <div class="page" data-page="gov_left">
+            <div class="button gov_home_button" data-js-page="home"></div>
+            <div class="button explore_button" data-page="explore">Explore</div>
+            <div class="option_container hide">
+              <div class='inner_container'>
+              <h1>Option 1</h1>
+              <h1>Option 2</h1>
+              <h1>Option 3</h1>
+              <h1>Option 4</h1>
+            </div>
+            </div>
           </div>
           <div class="page" data-page="hospit_right">
+            <div class="button hospit_home_button" data-js-page="home"></div>
           </div>
     </body>
 </html>
