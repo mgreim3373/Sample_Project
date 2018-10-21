@@ -8,34 +8,69 @@
     <script src="js/zepto.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
   </head>
-  <body>
-          <div class="home" data-page="entry">
-            <div class="flex-container">
-              <div class="to_gov" data-js-page="gov_left">
-                <h1>Government</h1>
-              </div>
-              <div class="text-title" data-js-page="home">
-                <h2>Kaon Interactive</h2>
-              </div>
-              <div class="to_hospit" data-js-page="hospit_right">
-                <h1>Healthcare</h1>
-              </div>
+
+    <body>
+
+    <!-- Entry screen content start-->
+      <div class="entry_outer_container">
+        <div class="entry_flex_container">
+
+          <!-- Government rectangle start-->
+          <div class="entry_gov_container">
+            <img src="./images/gov.png" alt="gov_icon">
+            <div class="gov_float_container">
+              <h1>Government</h1>
+              <img class="gov_left_arrow" src="./images/arrowL.png" alt="arrowL_icon" data-js-page="gov_outer_container">
             </div>
           </div>
-          <div class="page" data-page="gov_left">
-            <div class="button gov_home_button" data-js-page="home"></div>
-            <div class="button explore_button" data-page="explore">Explore</div>
-            <div class="option_container">
-              <div class='inner_container'>
-              <div><h1>Option 1</h1></div>
-              <div><h1>Option 2</h1></div>
-              <div><h1>Option 3</h1></div>
-              <div><h1>Option 4</h1></div>
-            </div>
+          <!-- Government rectangle end -->
+
+          <!-- Kaon Interactive rectangle start -->
+          <div class="entry_kaon_container">
+            <h2>Kaon Interactive</h2>
+            <div class="kaon_circle_container">
+              <div>''</div>
+              <div>'' </div>
+              <div>'' </div>
+              <div>''</div>
             </div>
           </div>
-          <div class="page" data-page="hospit_right">
-            <div class="button hospit_home_button" data-js-page="home"></div>
+          <!-- Kaon Interactive rectangle end -->
+
+          <!-- Health rectangle start -->
+          <div class="entry_health_container">
+            <img src="./images/med.png" alt="gov_icon">
+            <div class="health_float_container">
+              <h1>Healthcare</h1>
+              <img class="right_arrow" src="./images/arrowR.png" alt="arrowR_icon" data-js-page="health_outer_container">
+            </div>
           </div>
+          <!-- Health rectangle end -->
+
+        </div>
+      </div>
+      <!-- Entry screen content end-->
+
+      <!-- Government screen start -->
+      <div class="page" data-page="gov_outer_container">
+        <div class="gov_home_button" data-js-page="home"></div>
+        <div class="gov_explore_button">Explore</div>
+        <div class="gov_option_container">
+          <div class='gov_inner_container'>
+            <div><h1>Option 1</h1></div>
+            <div><h1>Option 2</h1></div>
+            <div><h1>Option 3</h1></div>
+            <div><h1>Option 4</h1></div>
+          </div>
+        </div>
+      </div>
+      <!-- Government screen end -->
+
+      <!-- Health screen start -->
+      <div class="page" data-page="health_outer_container">
+        <div class="health_home_button" data-js-page="home"></div>
+      </div>
+      <!-- Health screen end -->
+
     </body>
 </html>

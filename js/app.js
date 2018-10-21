@@ -1,74 +1,82 @@
 $(document).ready(function(){
 
-$("[data-js-page]").on("touchend", function(){
-	var goal_page = $(this).data("js-page")
-	clearHomeContent()
-	clearActiveClass()
-	if(goal_page.includes('gov')) {
-		var gov_image = $("[data-page='gov_left']")
-		showGoalPage('hospit_right','slide_right', goal_page)
-		centerGovImageFunc()
-	} else if(goal_page.includes('right')) {
-		var hospit_image = $("[data-page='hospit_right']")
-		showGoalPage('gov_left', 'slide_left', goal_page)
-		centerHospitImageFunc()
-	}
+	// Page navigation functions start
+	$("[data-js-page]").on("touchend", function(){
+			var goal_page = $(this).data("js-page")
+			clearEntryContent()
+			clearActiveClass()
+
+			// If clicked button is government, show government page
+			if(goal_page.includes('gov')) {
+				showGoalPage('health_outer_container','slide_right', goal_page)
+				centerGovImage()
+			// If clicked button is health, show health page
+			} else if(goal_page.includes('health')) {
+				showGoalPage('gov_outer_container', 'slide_left', goal_page)
+				centerHealthImage()
+			// If clicked button is entry, show entry page
+			} else {
+					$(".page").removeClass("slide_right slide_left")
+					showEntryContent()
+					offsetGovImage()
+					offsetHealthImage()
+					clearModalAnimation()
+			}
+		})
+		// Page navigation functions end
+
+	// Explore modal function start
+	$(".gov_explore_button").on("touchend", function(){
+		$(".gov_option_container").addClass('explore_modal')
+		setTimeout(() => {
+	    $(".gov_inner_container").children().addClass('explore_modal')
+		}, 100)
+	})
+	// Explore modal function end
 })
 
-$("[data-js-page='home']").on("touchend", function(){
-	var goal_page = $(this).data("js-page")
-	$(".page").removeClass("active slide_right slide_left")
-	$(".flex-container > div").css({"display":"initial"})
-	offsetGovImageFunc()
-	offsetHospitImageFunc()
-	$(".option_container").removeClass('explorePop')
-	$(".inner_container").children().removeClass('explorePop')
-})
-
-$(".explore_button").on("touchend", function(){
-	$(".option_container").addClass('explorePop')
-	setTimeout(() => {
-    $(".inner_container").children().addClass('explorePop')
-}, 100);
-})
-
-})
-
-
+//Clear active class from all page views
 const clearActiveClass = () => {
 	$(".page").removeClass("active")
 }
 
-const showGoalPage = (currPage, currPageAction, goalPage) => {
-	$(".page[data-page='"+currPage+"']").addClass(currPageAction)
+//Clear entry page content
+const clearEntryContent = () => {
+	$(".entry_flex_container > div").css({"display":"none"})
+}
+
+//Slide non-goal page view off screen and reveal goal page view
+const showGoalPage = (nonGoalPage, nonGoalPageAction, goalPage) => {
+	$(".page[data-page='"+nonGoalPage+"']").addClass(nonGoalPageAction)
 	$(".page[data-page='"+goalPage+"']").addClass("active")
 }
 
-const clearHomeContent = () => {
-	$(".flex-container > div").css({"display":"none"})
+//Center goal-page background image position
+const centerHealthImage = () => {
+	$("[data-page='health_outer_container']").addClass('center_health_image')
+}
+const centerGovImage = () => {
+	$("[data-page='gov_outer_container']").addClass('center_gov_image')
 }
 
-const recenterImage = (goalBackgroundImage) => {
-	goalBackgroundImage.css({"background-position":"0px"})
+//Clear explore modal content
+const clearModalAnimation = () => {
+	$(".gov_option_container").removeClass('explore_modal')
+	$(".gov_inner_container").children().removeClass('explore_modal')
 }
 
-const offsetHospitImageFunc = () => {
-	$("[data-page='hospit_right']").addClass('offsetHospitImage')
-	$("[data-page='hospit_right']").removeClass('centerHospitImage')
-
+//Offset images for entry view
+const offsetHealthImage = () => {
+	$("[data-page='health_outer_container']").addClass('offset_health_image')
+	$("[data-page='health_outer_container']").removeClass('center_health_image')
 }
-const offsetGovImageFunc = () => {
+const offsetGovImage = () => {
 	console.log('hi')
-	$("[data-page='gov_left']").addClass('offsetGovImage')
-	$("[data-page='gov_left']").removeClass('centerGovImage')
-
+	$("[data-page='gov_outer_container']").addClass('offset_gov_image')
+	$("[data-page='gov_outer_container']").removeClass('center_gov_image')
 }
 
-const centerHospitImageFunc = () => {
-	$("[data-page='hospit_right']").addClass('centerHospitImage')
-
-}
-const centerGovImageFunc = () => {
-	$("[data-page='gov_left']").addClass('centerGovImage')
-
+//Show entry content
+const showEntryContent = () => {
+	$(".entry_flex_container > div").css({"display":"initial"})
 }
