@@ -1,14 +1,16 @@
 html {
-	font-family: 'Josefin Sans', sans-serif;
+	font-family: "Josefin Sans", sans-serif;
 	letter-spacing: -2px;
+	font-weight: bold;
 }
 
 body {
 	margin: 0;
 	overflow:hidden;
+	background-color: rgb(183, 181, 163);
 }
 
-/* Generic page view styling start*/
+/* Multi-use page view styling start*/
 .page {
 	position: absolute;
 	top: 0;
@@ -17,17 +19,27 @@ body {
 	height: 100vh;
 	transition: 0.5s transform ease;
 }
-
-.gov_home_button, .gov_explore_button, .health_home_button {
-	color: white;
+.gov_home_button, .health_home_button {
+	z-index: 2;
+	box-shadow: 0 0 20px #333;
+	height: 14%;
+	width: 11%;
+	background: rgb(132, 132, 132);
+	position: absolute;
+	padding-top: 3%;
+	opacity: 0;
+	top: 5%;
+	min-width: 100px;
 	overflow: hidden;
-	background-color: black;
-	width: 40px;
-	height: 40px;
 }
-/* Generic page view styling end*/
+.gov_home_button > img, .health_home_button > img {
+	z-index: 2;
+	height: 55%;
+	min-height: 40px;
+}
+/* Multi-purpose styling end*/
 
-/* Entry view styling start */
+/* Entry view styling start*/
 .entry_outer_container {
 	position: relative;
 	z-index: 2;
@@ -39,137 +51,194 @@ body {
 	height: 100%;
 }
 .entry_flex_container > div {
-  background-color: rgba(181, 179, 179,.9);
+  background-color: rgba(132, 132, 132, .80);
   width: 100%;
   margin: 10px;
   line-height: 50%;
 	flex: 1;
 	padding: 2%;
-	padding-bottom: 1.5%;
-	font: 170%;
-	padding-top: 2%;
+	padding-bottom: 4%;
+	font-size: 150%;
+	padding-top: 4%;
 	color: white;
+	box-shadow: 0 0 20px #333;
+	animation: .3s ease-out 0s 1 fadeIn forwards;
 }
 
-/* Kaon retangle styling */
+/* Kaon retangle styling start*/
 .entry_flex_container > div.entry_kaon_container {
-	color: grey;
+	color: rgb(66, 66, 66);
 	padding-top: 1%;
 	flex: 1.5;
 	background-color: rgba(255, 255, 255,.9);
-	font-size: 180%;
+	font-size: 280%;
 	padding-left: 1%;
+	min-width: 460px;
 }
 .kaon_circle_container {
 	display: flex;
-	margin-left: 2%;
 	height: 100%;
+	overflow: hidden;
+	margin-left: -2.5%;
 }
-
 .kaon_circle_container > div{
-  height: 60px;
-  width: 60px;
+  height: 100px;
+  width: 100px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 	margin-left: -5%;
-	overflow: hidden;
+	visibility: hidden;
 }
 .kaon_circle_container > div:nth-child(1){
 	margin-left: 0%;
-	background-color: grey;
+	background-color: rgb(179, 179, 181);
+	z-index: 1;
+	animation: .2s ease-out 0s 1 circleRoll forwards;
 }
 .kaon_circle_container > div:nth-child(2){
-	background-color: blue;
+	background-color: rgb(145, 145, 145);
+	z-index: 2;
+	animation: .5s ease-out 0s 1 circleRoll forwards;
 }
 .kaon_circle_container > div:nth-child(3){
-	background-color: grey;
+	background-color: rgb(170, 168, 82);
+	z-index: 1;
+	animation: .7s ease-out 0s 1 circleRoll forwards;
 }
 .kaon_circle_container > div:nth-child(4){
-	background-color: blue;
+	background-color: rgb(145, 145, 145);
+	z-index: 2;
+	animation: .8s ease-out 0s 1 circleRoll forwards;
 }
+/* Kaon retangle styling end*/
 
-/* Gov retangle styling */
+/* Gov retangle styling start*/
 .entry_flex_container > div.entry_gov_container {
 	margin-left: 0px;
 	text-align: right;
+	min-width: 280px;
 }
 .gov_float_container > img {
 	float: left;
 }
+.gov_float_container > img:hover {
+	cursor: pointer;
+}
 .gov_float_container > h1 {
 	float: right;
 }
+.entry_gov_container > img {
+	height: 33%;
+	margin-top: -10%;
+	padding-bottom: 4%;
+}
+/* Gov retangle styling end*/
 
-/* Health retangle styling */
-.flex-container > div.entry_health_container {
+/* Health retangle styling start*/
+.entry_flex_container > div.entry_health_container {
 	margin-right: 0px;
 	text-align: left;
+	min-width: 280px;
 }
 .health_float_container > img {
 	float: right;
 }
+.health_float_container > img:hover {
+	cursor: pointer;
+}
 .health_float_container > h1 {
 	float: left;
 }
+.entry_health_container > img {
+	height: 33%;
+	margin-top: -10%;
+	padding-bottom: 4%;
+}
+/* Health retangle styling end*/
+/* Entry view styling end*/
 
-/* Gov page view styling */
+/* Gov page view styling start*/
 .page[data-page="gov_outer_container"] {
 	transform:translate(-50.5%);
 	background-image: url("../images/gov_bg.png");
 	background-position: 250px;
   background-repeat: no-repeat;
   background-size: cover;
+	box-shadow: inset 0 0 20px black;
 }
 .gov_explore_button {
-	height: 8%;
-	width: 20%;
-	background: grey;
+	box-shadow: 0 0 20px #333;
+	height: 14%;
+	width: 29%;
+	background: rgb(132, 132, 132);
 	color: white;
 	position: absolute;
+	right: 71%;
+	top: 77%;
 	text-align: center;
-	padding-top: 2.5%;
-	margin-left: 0;
-	margin-bottom: 2%;
-	font-size: 300%;
+	padding-top: 3%;
+	font-size: 375%;
 }
-/* Gov modal */
+.gov_explore_button:hover {
+	cursor: pointer;
+}
+.gov_home_button {
+	right: 0%;
+}
+.gov_home_button > img {
+	padding-left: 40%;
+}
+.gov_home_button > img:hover {
+	cursor: pointer;
+}
+
+/* Gov modal start*/
 .gov_option_container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	visibility: hidden;
 	overflow: hidden;
-	min-width: 320px;
 }
 .gov_inner_container {
-  background-color: rgba(181, 179, 179,.9);
-	width: 40%;
-	margin: 20px;
+	box-shadow: 0 0 20px #333;
+  background-color: rgb(132, 132, 132);
+	width: 30%;
+	margin: 3%;
 	justify-content: center;
 	text-align: center;
 	line-height: 200%;
 	padding: 3%;
 	text-align: center;
 	color: white;
-	text-align: center;
+	font-size: 150%;
 	display:flex;
 	flex-direction: column;
+}
+.line {
+	margin: -2% 10% -2% 10%;
+	width: 80%;
+	background-color: white;
+	font-size: 1%;
+	height: 2px;
 }
 .gov_inner_container > div {
 	visibility: hidden;
 }
 .gov_inner_container > div:nth-child(1) {
 	animation-delay: 0s }
-.gov_inner_container > div:nth-child(2) {
-	animation-delay: .1s }
 .gov_inner_container > div:nth-child(3) {
+	animation-delay: .1s }
+.gov_inner_container > div:nth-child(5) {
 	animation-delay: .2s }
-.gov_inner_container > div:nth-child(4) {
+.gov_inner_container > div:nth-child(7) {
 	animation-delay: .3s }
+.line {
+	animation-delay: .5s }
 .gov_inner_container > div > h1:hover {
 	transform: scale(1.2);
-	color:grey;
+	color: rgb(48, 48, 48);
 }
 .explore_modal {
 	animation-name: exploreModal;
@@ -177,17 +246,105 @@ body {
 	animation-timing-function: ease;
 	animation-fill-mode: forwards;
 }
+/* Gov modal end */
+/* Gov page view styling end*/
 
-/* Health page view styling */
+/* Health page view styling start*/
 .page[data-page="health_outer_container"] {
 	transform:translate(50.5%);
 	background-image: url("../images/hc_bg.png");
 	background-position: -250px;
   background-repeat: no-repeat;
   background-size: cover;
+	box-shadow: inset 0 0 20px black;
 }
+.health_home_button {
+	right: 89%;
+}
+.health_home_button > img:hover {
+	cursor: pointer;
+}
+.health_home_button > img {
+	padding-left: 20%;
+}
+/* Lable styling start*/
+@media (max-width: 680px)  {
+	.option_lableA_container{
+		display: none;
+	}
+}
+@media (max-width: 879px)  {
+	.option_lableA_container{
+		position: absolute;
+		top: 23%;
+		left: 35%;
+		}
+		.option_lableB_container {
+			display: none;
+	}
+}
+@media (min-width: 880px)  {
+	.option_lableA_container{
+		position: absolute;
+		top: 23%;
+		left: 35%;
+		}
+		.option_lableB_container {
+			position: absolute;
+			top: 33%;
+			left: 70%;
+	}
+}
+@media (min-width: 1050px)  {
+	.option_lableA_container{
+		position: absolute;
+		top: 20%;
+		left: 25%;
+		}
+		.option_lableB_container {
+			position: absolute;
+			top: 33%;
+			left: 60%;
+	}
+}
+@media (min-width: 1250px)  {
+	.option_lableA_container{
+		position: absolute;
+		top: 17%;
+		left: 20%;
+		}
+		.option_lableB_container {
+			position: absolute;
+			top: 32%;
+			left: 50%;
+	}
+}
+.option_lable {
+	background-color: rgb(102, 100, 100);
+	color: white;
+	width: 200%;
+	height: 70px;
+	text-align: center;
+}
+.option_lableA_container > div:nth-child(2), .option_lableB_container > div:nth-child(2) {
+	margin-left: 75%;
+	width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(102, 100, 100);
+}
+.option_lable > h1 {
+	font-size: 250%;
+	padding-top: 6%;
+}
+.option_lableA_container, .option_lableB_container {
+	opacity: 0;
+}
+/* Lable styling end*/
+/* Health page view styling end*/
 
-/* Transition styling */
+/* Transition styling start*/
 .page.active {
 	transform:translate(0);
 	transition:0.5s transform ease;
@@ -198,7 +355,6 @@ transform:translate(100%);
 .page.slide_left {
 transform:translate(-100%);
 }
-
 .offset_health_image, .offset_gov_image {
 	animation-duration: .5s;
 	animation-timing-function: ease;
@@ -221,8 +377,21 @@ transform:translate(-100%);
 .center_gov_image {
 	animation-name: centerGImage;
 }
+.fade_out {
+	animation-name: fadeOut;
+	animation-duration: .5s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+.fade_in {
+	animation-name: fadeIn;
+	animation-duration: .5s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+/* Transition styling end*/
 
-
+/* Keyframe animations start*/
 @keyframes offsetHImage {
 	0% {
 		background-position: 0px;
@@ -231,7 +400,6 @@ transform:translate(-100%);
 		background-position: -250px;
 	}
 }
-
 @keyframes offsetGImage {
 	0% {
 		background-position: 0px;
@@ -240,7 +408,6 @@ transform:translate(-100%);
 		background-position: 250px;
 	}
 }
-
 @keyframes centerHImage {
 	0% {
 		background-position: -250px;
@@ -249,7 +416,6 @@ transform:translate(-100%);
 		background-position: 0px;
 	}
 }
-
 @keyframes centerGImage {
 	0% {
 		background-position: 250px;
@@ -258,17 +424,42 @@ transform:translate(-100%);
 		background-position: 0px;
 	}
 }
-
 @keyframes exploreModal {
-	0%{
+	0% {
 	    transform: scale(0) translateY(100px);
 	  }
-	  50%{
+	  50% {
 	    transform: scale(1.05) translateY(-10px);
 	    opacity: 1;
 	  }
-	  100%{
+	  100% {
 	    transform: scale(1) translateY(0px);
 	    visibility: visible;
 	  }
 }
+@keyframes circleRoll {
+	0% {
+		transform: translate(-400%);
+	}
+	100% {
+		transform: translate(10%);
+		visibility: visible;
+	}
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+/* Keyframe animations end*/
